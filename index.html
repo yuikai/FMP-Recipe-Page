@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Recipe page</title>
+
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="./styles.css"/>
+</head>
+<body>
+  
+  <div id="app" class="container">
+    <img :src="displayImg" alt="Display Image"/>
+
+    <div class="section">
+      <h1>{{ recipe }} Recipe</h1>
+      <p>{{ desc }}</p>
+    </div>
+    <div class="highlight">
+      <h3>Preparation time</h3>
+      <ul>
+        <li v-for="time in prepTimes"><b>{{ time[0] }}</b>: {{ time[1] }} minute(s)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Ingredients</h2>
+      <ul>
+        <li v-for="ingredient in ingredients">{{ ingredient }}</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Instructions</h2>
+      <ol>
+        <li v-for="step in instructions"><b>{{ step[0] }}</b>: {{ step[1] }}</li>
+      </ol>
+    </div>
+    <div class="section">
+      <h2>Nutrition</h2>
+      <p>The table below shows nutritional values per serving without the additional fillings.</p>
+
+      <table>
+        <tbody>
+          <tr v-for="data in nutritionTable ">
+            <td>{{ data[0] }}</td>
+            <td class="tableData"><b>{{ data[1] }}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">uKai</a>.
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
